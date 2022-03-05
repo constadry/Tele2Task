@@ -30,7 +30,6 @@ public class UserRepository : BaseRepository, IUserRepository
     {
         Debug.Assert(Context.Users != null, "Context.Users != null");
         var result = await Context.Users.AddAsync(entity);
-        await Context.SaveChangesAsync();
         return result.Entity;
     }
 
@@ -39,7 +38,6 @@ public class UserRepository : BaseRepository, IUserRepository
         var user = await Get(entity.UserId);
         user.Name = entity.Name;
         user.Sex = entity.Sex;
-        await Context.SaveChangesAsync();
         return user;
     }
 
@@ -47,7 +45,6 @@ public class UserRepository : BaseRepository, IUserRepository
     {
         Debug.Assert(Context.Users != null, "Context.Users != null");
         var result = Context.Users.Remove(entity);
-        await Context.SaveChangesAsync();
         return result.Entity;
     }
 }
