@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Tele2Task.Models;
 
 namespace Tele2Task.Contexts;
 
@@ -10,4 +11,6 @@ public sealed class AppDbContext : DbContext
         // Database.EnsureDeleted();
         Database.EnsureCreated();
     }
+
+    public DbSet<User>? Users { get; set; }
 }
