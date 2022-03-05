@@ -2,9 +2,9 @@ namespace Tele2Task.Repositories;
 
 public interface IRepository<T> where T : class
 {
-    IEnumerable<T> GetAll();  
-    T Get(int id);
-    T Save(T entity);
-    T Update(T entity);
-    T Delete(T entity);
+    Task<IEnumerable<T>> GetAll();  
+    Task<T> Get(int id);
+    Task<T> Save(T entity);
+    Task<T> Update(T entity);
+    Task<T> Delete(T entity);
 }

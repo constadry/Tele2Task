@@ -1,37 +1,36 @@
+using Tele2Task.Contexts;
 using Tele2Task.Models;
 
 namespace Tele2Task.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : BaseRepository, IUserRepository
 {
-    private readonly 
-    
-    public UserRepository()
+    public UserRepository(AppDbContext context)
+        : base(context)
     {
-        
     }
-    
-    public IEnumerable<User> GetAll()
+
+    public async Task<IEnumerable<User>> GetAll()
+    {
+        return 
+    }
+
+    public Task<User> Get(int id)
     {
         throw new NotImplementedException();
     }
 
-    public User Get(int id)
+    public Task<User> Save(User entity)
     {
         throw new NotImplementedException();
     }
 
-    public User Save(User entity)
+    public Task<User> Update(User entity)
     {
         throw new NotImplementedException();
     }
 
-    public User Update(User entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public User Delete(User entity)
+    public Task<User> Delete(User entity)
     {
         throw new NotImplementedException();
     }
