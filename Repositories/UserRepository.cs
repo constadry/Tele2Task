@@ -1,5 +1,8 @@
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using Tele2Task.Contexts;
 using Tele2Task.Models;
+using Tele2Task.Tools;
 
 namespace Tele2Task.Repositories;
 
@@ -12,26 +15,39 @@ public class UserRepository : BaseRepository, IUserRepository
 
     public async Task<IEnumerable<User>> GetAll()
     {
-        return 
+        Debug.Assert(Context.Users != null, "Context.Users != null");
+        return await Context.Users.ToListAsync();
     }
 
-    public Task<User> Get(int id)
+    public async Task<User> Get(int id)
     {
-        throw new NotImplementedException();
+        Debug.Assert(Context.Users != null, "Context.Users != null");
+        return await Context.Users.FindAsync(id) ??
+               throw new Tele2Exception($"User not found by id {id}");
     }
 
-    public Task<User> Save(User entity)
+    public async Task<User> Save(User entity)
     {
-        throw new NotImplementedException();
+        Debug.Assert(Context.Users != null, "Context.Users != null");
+        var result = await Context.Users.AddAsync(entity);
+        await Context.SaveChangesAsync();
+        return result.Entity;
     }
 
-    public Task<User> Update(User entity)
+    public async Task<User> Update(User entity)
     {
-        throw new NotImplementedException();
+        var user = await Get(entity.UserId);
+        user.Name = entity.Name;
+        user.Sex = entity.Sex;
+        await Context.SaveChangesAsync();
+        return user;
     }
 
-    public Task<User> Delete(User entity)
+    public async Task<User> Delete(User entity)
     {
-        throw new NotImplementedException();
+        Debug.Assert(Context.Users != null, "Context.Users != null");
+        var result = Context.Users.Remove(entity);
+        await Context.SaveChangesAsync();
+        return result.Entity;
     }
 }
