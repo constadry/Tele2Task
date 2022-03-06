@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Tele2Task.Services;
 using Tele2Task.Extensions;
+using Tele2Task.Models;
 
 namespace Tele2Task.Controllers;
 
@@ -16,12 +17,12 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllUsers()
+    public async Task<IActionResult> GetAllUsers([FromQuery] UserParameters userParameters)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());
             
-        var result = await _userService.GetAll();
+        var result = await _userService.GetAll(userParameters);
 
         return Ok(result);
     }

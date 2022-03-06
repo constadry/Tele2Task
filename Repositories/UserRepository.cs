@@ -13,10 +13,17 @@ public class UserRepository : BaseRepository, IUserRepository
     {
     }
 
-    public async Task<IEnumerable<User>> GetAll()
+    public async Task<IEnumerable<User>> GetAll(UserParameters userParameters)
     {
         Debug.Assert(Context.Users != null, "Context.Users != null");
-        return await Context.Users.ToListAsync();
+        var result = await Context.Users.ToListAsync();
+        if (userParameters.Sex != null)
+            result = result.Where(u => u.Sex.ToString() == userParameters.Sex).ToList();
+        result = result.Skip((userParameters.PageNumber - 1) * userParameters.PageNumber)
+            .Take(userParameters.PageSize)
+            .OrderBy(u => u.Name)
+            .ToList();
+        return result;
     }
 
     public async Task<User> Get(string id)

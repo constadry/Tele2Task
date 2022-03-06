@@ -16,9 +16,9 @@ public class UserService : IUserService
         _unitOfWork = unitOfWork;
     }
 
-    public Task<IEnumerable<User>> GetAll()
+    public Task<IEnumerable<User>> GetAll(UserParameters userParameters)
     {
-        return _userRepository.GetAll();
+        return _userRepository.GetAll(userParameters);
     }
 
     public async Task<UserResponse> Get(string id)
