@@ -6,8 +6,8 @@ namespace Tele2Task.Services;
 public interface IUserService
 {
     Task<IEnumerable<User>> GetAll();  
-    Task<UserResponse> Get(int id);
+    Task<UserResponse> Get(string id);
     Task<UserResponse> Save(User user);
     Task<UserResponse> Update(User user);
-    Task<UserResponse> Delete(int id);
+    Task<UserResponse> Delete(string id);
 }

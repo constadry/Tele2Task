@@ -19,7 +19,7 @@ public class UserRepository : BaseRepository, IUserRepository
         return await Context.Users.ToListAsync();
     }
 
-    public async Task<User> Get(int id)
+    public async Task<User> Get(string id)
     {
         Debug.Assert(Context.Users != null, "Context.Users != null");
         return await Context.Users.FindAsync(id) ??

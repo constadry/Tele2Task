@@ -21,7 +21,7 @@ public class UserService : IUserService
         return _userRepository.GetAll();
     }
 
-    public async Task<UserResponse> Get(int id)
+    public async Task<UserResponse> Get(string id)
     {
         try
         {
@@ -63,7 +63,7 @@ public class UserService : IUserService
         }
     }
 
-    public async Task<UserResponse> Delete(int id)
+    public async Task<UserResponse> Delete(string id)
     {
         try
         {
