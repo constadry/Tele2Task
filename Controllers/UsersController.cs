@@ -5,6 +5,7 @@ using Tele2Task.Extensions;
 namespace Tele2Task.Controllers;
 
 [ApiController]
+[Produces("application/json")]
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
