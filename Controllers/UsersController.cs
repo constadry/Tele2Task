@@ -28,7 +28,7 @@ public class UsersController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser(string id)
+    public async Task<IActionResult> GetUser(string id, [FromQuery] UserParameters userParameters)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());

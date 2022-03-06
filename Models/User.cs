@@ -12,4 +12,5 @@ public class User
     [Column(TypeName = "nvarchar(24)")]
     [JsonConverter(typeof(StringEnumConverter))]
     public Sex Sex { get; set; }
+    public int Age { get; set; }
 }

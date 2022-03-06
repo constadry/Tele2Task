@@ -4,6 +4,8 @@ public class UserParameters
 {
     private int _pageSize = 13;
     private const int MaxPageSize = 13;
+    private const int MinAge = 0;
+    private const int MaxAge = 150;
 
     public int PageNumber { get; set; } = 1;
 
@@ -14,6 +16,7 @@ public class UserParameters
     }
 
     public string? Sex { get; set; }
-    
-    public int Age { get; set; }
+
+    public int StartAge { get; set; } = MinAge;
+    public int EndAge { get; set; } = MaxAge;
 }
