@@ -1,10 +1,20 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Tele2Task;
 using Tele2Task.Contexts;
 using Tele2Task.Repositories;
 using Tele2Task.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.Formatting = Formatting.Indented;
+    });
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 var version = ServerVersion.AutoDetect(connection);
@@ -38,6 +48,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "This is test task api app for tele2 company, wow!");
+app.MapControllers();
+
+// app.MapGet("/", () => "This is test task api app for tele2 company, wow!");
 
 app.Run();
