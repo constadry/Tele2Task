@@ -17,10 +17,10 @@ public class UserRepository : BaseRepository, IUserRepository
     {
         Debug.Assert(Context.Users != null, "Context.Users != null");
         var result = await Context.Users.ToListAsync();
-        if (userParameters.Sex != null)
-            result = result.Where(u => u.Sex.ToString().ToLower() == userParameters.Sex).ToList();
         result = result.Where(u => u.Age >= userParameters.StartAge &&
                                    u.Age <= userParameters.EndAge).ToList();
+        if (userParameters.Sex != null)
+            result = result.Where(u => u.Sex.ToString().ToLower() == userParameters.Sex).ToList();
         result = result.Skip((userParameters.PageNumber - 1) * userParameters.PageNumber)
             .Take(userParameters.PageSize)
             .OrderBy(u => u.Name)
