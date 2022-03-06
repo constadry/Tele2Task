@@ -28,13 +28,15 @@ public class UsersController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUser(string id, [FromQuery] UserParameters userParameters)
+    public async Task<IActionResult> GetUser(string id)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());
-            
+
         var result = await _userService.Get(id);
 
-        return Ok(result);
+        if (!result.Success) return BadRequest(result.Message);
+
+        return Ok(result.User);
     }
 }
