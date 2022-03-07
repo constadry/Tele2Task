@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tele2Task", "Tele2Task.csproj", "{17C8E4C0-1C3C-4851-B88E-D65BA77DC0C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tele2Task", "Tele2Task\Tele2Task.csproj", "{17C8E4C0-1C3C-4851-B88E-D65BA77DC0C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
