@@ -1,2 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4b97915f_002D5ad5_002D473d_002D99af_002D64bd70abdf8f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetAllUsers" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A1D74C48-2CE5-4F5F-A76D-45E597229665::net6.0::Tele2Task.Tests.UserServiceTest.GetAllUsers&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A1D74C48-2CE5-4F5F-A76D-45E597229665::net6.0::Tele2Task.Tests.UserServiceTest.GetUser&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Tele/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
